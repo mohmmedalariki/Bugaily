@@ -41,6 +41,7 @@ MAX_TOTAL_ITEMS = 5
 MAX_PER_SOURCE = 2
 HOURS_LOOKBACK = 36
 HISTORY_FILE = "history.json"
+SUBSCRIBERS_FILE = "subscribers.json"
 
 
 def load_history() -> List[str]:
@@ -60,6 +61,59 @@ def save_history(history: List[str]):
             json.dump(history, f, indent=4)
     except Exception as e:
         logger.error(f"Failed to save history: {e}")
+
+
+def load_subscribers() -> Dict[str, Any]:
+    if os.path.exists(SUBSCRIBERS_FILE):
+        try:
+            with open(SUBSCRIBERS_FILE, "r") as f:
+                return json.load(f)
+        except Exception as e:
+            logger.error(f"Failed to load subscribers: {e}")
+    return {"last_update_id": 0, "chat_ids": []}
+
+
+def save_subscribers(data: Dict[str, Any]):
+    try:
+        with open(SUBSCRIBERS_FILE, "w") as f:
+            json.dump(data, f, indent=4)
+    except Exception as e:
+        logger.error(f"Failed to save subscribers: {e}")
+
+
+def update_subscribers(bot_token: str, dry_run: bool) -> Dict[str, Any]:
+    sub_data = load_subscribers()
+    if not bot_token:
+        return sub_data
+        
+    offset = sub_data.get("last_update_id", 0) + 1
+    url = f"https://api.telegram.org/bot{bot_token}/getUpdates?offset={offset}&timeout=10"
+    
+    try:
+        resp = requests.get(url)
+        resp.raise_for_status()
+        data = resp.json()
+        
+        if data.get("ok"):
+            updates = data.get("result", [])
+            for update in updates:
+                update_id = update["update_id"]
+                sub_data["last_update_id"] = max(sub_data.get("last_update_id", 0), update_id)
+                
+                message = update.get("message", {})
+                chat_id = message.get("chat", {}).get("id")
+                
+                if chat_id and chat_id not in sub_data["chat_ids"]:
+                    logger.info(f"New subscriber found: {chat_id}")
+                    sub_data["chat_ids"].append(chat_id)
+                    
+            if updates and not dry_run:
+                save_subscribers(sub_data)
+                
+    except Exception as e:
+        logger.error(f"Failed to get updates for subscribers: {e}")
+        
+    return sub_data
 
 
 def fetch_feeds(history: List[str]) -> List[Dict[str, Any]]:
@@ -256,14 +310,29 @@ def get_summaries(items: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
             return [{"title": i["title"], "source": i["source"], "url": i["url"], "summary": "Failed to generate summary.", "tag": "News"} for i in items]
 
 
-def send_to_telegram(summaries: List[Dict[str, Any]], dry_run: bool) -> bool:
+def send_to_telegram(summaries: List[Dict[str, Any]], dry_run: bool, sub_data: Dict[str, Any]) -> bool:
     bot_token = os.getenv("TELEGRAM_BOT_TOKEN")
-    chat_id = os.getenv("TELEGRAM_CHAT_ID")
     
-    if not bot_token or not chat_id:
-        logger.error("TELEGRAM_BOT_TOKEN or TELEGRAM_CHAT_ID not set.")
+    if not bot_token:
+        logger.error("TELEGRAM_BOT_TOKEN not set.")
         if not dry_run:
             return False
+            
+    chat_ids = sub_data.get("chat_ids", [])
+    
+    # Optional fallback to env var if no subscribers yet (for testing)
+    env_chat_id = os.getenv("TELEGRAM_CHAT_ID")
+    if env_chat_id:
+        try:
+            env_chat_id = int(env_chat_id)
+            if env_chat_id not in chat_ids:
+                chat_ids.append(env_chat_id)
+        except ValueError:
+            pass
+            
+    if not chat_ids:
+        logger.info("No subscribers to send to.")
+        return True
             
     date_str = datetime.now().strftime("%Y-%m-%d")
     message = f"🔒 <b>Bug Bounty & InfoSec Digest</b> - {date_str}\n\n"
@@ -280,30 +349,43 @@ def send_to_telegram(summaries: List[Dict[str, Any]], dry_run: bool) -> bool:
         message += f"{summary}\n\n"
         
     if dry_run:
-        logger.info("DRY RUN: Telegram Message Payload:")
+        logger.info(f"DRY RUN: Telegram Message Payload to {len(chat_ids)} users:")
         print("-" * 40)
         print(message)
         print("-" * 40)
         return True
         
-    url = f"https://api.telegram.org/bot{bot_token}/sendMessage"
-    payload = {
-        "chat_id": chat_id,
-        "text": message,
-        "parse_mode": "HTML",
-        "disable_web_page_preview": True
-    }
+    success_count = 0
+    active_chat_ids = []
     
-    try:
-        resp = requests.post(url, json=payload)
-        resp.raise_for_status()
-        logger.info("Message sent to Telegram successfully.")
-        return True
-    except Exception as e:
-        logger.error(f"Failed to send to Telegram: {e}")
-        if 'resp' in locals():
-            logger.error(f"Response: {resp.text}")
-        return False
+    for chat_id in chat_ids:
+        url = f"https://api.telegram.org/bot{bot_token}/sendMessage"
+        payload = {
+            "chat_id": chat_id,
+            "text": message,
+            "parse_mode": "HTML",
+            "disable_web_page_preview": True
+        }
+        
+        try:
+            resp = requests.post(url, json=payload)
+            if resp.status_code == 403:
+                logger.info(f"User {chat_id} blocked the bot. Removing from subscribers.")
+                continue
+            resp.raise_for_status()
+            logger.info(f"Message sent to {chat_id} successfully.")
+            active_chat_ids.append(chat_id)
+            success_count += 1
+        except Exception as e:
+            logger.error(f"Failed to send to {chat_id}: {e}")
+            active_chat_ids.append(chat_id) # keep them if it's a temp error
+            
+    # Update subscribers if anyone was removed
+    if len(active_chat_ids) != len(chat_ids) and not dry_run:
+        sub_data["chat_ids"] = active_chat_ids
+        save_subscribers(sub_data)
+        
+    return success_count > 0
 
 
 def main():
@@ -312,6 +394,9 @@ def main():
     args = parser.parse_args()
 
     load_dotenv()
+    
+    bot_token = os.getenv("TELEGRAM_BOT_TOKEN")
+    sub_data = update_subscribers(bot_token, args.dry_run)
     
     history = load_history()
     logger.info(f"Loaded {len(history)} items from history.")
@@ -328,7 +413,7 @@ def main():
     
     summaries = get_summaries(selected_items)
     
-    success = send_to_telegram(summaries, args.dry_run)
+    success = send_to_telegram(summaries, args.dry_run, sub_data)
     
     if success and not args.dry_run:
         # Update history

@@ -34,10 +34,10 @@ jobs:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: python bot.py
         
-      - name: Commit history.json
+      - name: Commit state files
         run: |
           git config --global user.name "GitHub Actions Bot"
           git config --global user.email "actions@github.com"
-          git add history.json
+          git add history.json subscribers.json
           # Only commit if there are changes
-          git diff --quiet && git diff --staged --quiet || (git commit -m "chore: update history.json" && git push)
+          git diff --quiet && git diff --staged --quiet || (git commit -m "chore: update history.json and subscribers.json" && git push)

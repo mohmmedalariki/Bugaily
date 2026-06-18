@@ -250,19 +250,9 @@ def summarize_with_gemini(items: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
     client = genai.Client(api_key=api_key)
     
     language = os.getenv("SUMMARY_LANGUAGE", "English")
-    prompt = f"Summarize the following bug bounty and infosec news items in {language}. For each item, provide a concise 1-2 sentence summary in {language} and a single relevant tag (e.g. 'Vulnerability', 'Writeup', 'News' translated to {language}).\n\n"
+    prompt = f"Summarize the following bug bounty and infosec news items in {language}. Output MUST be valid JSON containing a list of objects with the keys: title, source, url, summary (a concise 1-2 sentence summary in {language}), tag (a single relevant category like 'Vulnerability', 'Writeup', 'News' translated to {language}). Here are the items:\n\n"
     for i, item in enumerate(items):
         prompt += f"Item {i+1}:\nTitle: {item['title']}\nSource: {item['source']}\nURL: {item['url']}\nContent Preview: {item['content_preview']}\n\n"
-        
-    class SummaryItem(BaseModel):
-        title: str
-        source: str
-        url: str
-        summary: str
-        tag: str
-
-    class ResponseSchema(BaseModel):
-        items: list[SummaryItem]
         
     try:
         response = client.models.generate_content(
@@ -270,13 +260,19 @@ def summarize_with_gemini(items: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
             contents=prompt,
             config={
                 'response_mime_type': 'application/json',
-                'response_schema': ResponseSchema,
                 'temperature': 0.3
             }
         )
         
-        data = json.loads(response.text)
-        return data.get("items", [])
+        content = response.text.strip()
+        data = json.loads(content)
+        
+        if isinstance(data, dict):
+            for k, v in data.items():
+                if isinstance(v, list):
+                    return v
+            return [data]
+        return data
     except Exception as e:
         logger.error(f"Gemini API failed: {e}")
         raise

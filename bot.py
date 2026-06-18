@@ -203,7 +203,7 @@ def summarize_with_groq(items: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
     client = Groq(api_key=api_key)
     
     language = os.getenv("SUMMARY_LANGUAGE", "English")
-    prompt = f"Summarize the following bug bounty and infosec news items in {language}. Output MUST be valid JSON containing a list of objects with the keys: title, source, url, summary (a concise 1-2 sentence summary in {language}), tag (a single relevant category like 'Vulnerability', 'Writeup', 'News' translated to {language}). Here are the items:\n\n"
+    prompt = f"You are an elite bug bounty hunter. Summarize the following news items in {language}. Output MUST be valid JSON containing a list of objects with keys: title, source, url, summary, tag. For the 'summary' field, provide a highly technical, detailed summary (3-5 sentences in {language}) tailored specifically for bug bounty hunters. Focus strictly on actionable intelligence: specific vulnerabilities, payloads, bypass techniques, root causes, and practical takeaways they can use in their own hunts. Skip generic fluff. For the 'tag' field, use a relevant category like 'Vulnerability', 'Writeup', 'Tooling', 'Methodology' (translated to {language}). Here are the items:\n\n"
     
     for i, item in enumerate(items):
         prompt += f"Item {i+1}:\nTitle: {item['title']}\nSource: {item['source']}\nURL: {item['url']}\nContent Preview: {item['content_preview']}\n\n"
@@ -250,7 +250,7 @@ def summarize_with_gemini(items: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
     client = genai.Client(api_key=api_key)
     
     language = os.getenv("SUMMARY_LANGUAGE", "English")
-    prompt = f"Summarize the following bug bounty and infosec news items in {language}. Output MUST be valid JSON containing a list of objects with the keys: title, source, url, summary (a concise 1-2 sentence summary in {language}), tag (a single relevant category like 'Vulnerability', 'Writeup', 'News' translated to {language}). Here are the items:\n\n"
+    prompt = f"You are an elite bug bounty hunter. Summarize the following news items in {language}. Output MUST be valid JSON containing a list of objects with keys: title, source, url, summary, tag. For the 'summary' field, provide a highly technical, detailed summary (3-5 sentences in {language}) tailored specifically for bug bounty hunters. Focus strictly on actionable intelligence: specific vulnerabilities, payloads, bypass techniques, root causes, and practical takeaways they can use in their own hunts. Skip generic fluff. For the 'tag' field, use a relevant category like 'Vulnerability', 'Writeup', 'Tooling', 'Methodology' (translated to {language}). Here are the items:\n\n"
     for i, item in enumerate(items):
         prompt += f"Item {i+1}:\nTitle: {item['title']}\nSource: {item['source']}\nURL: {item['url']}\nContent Preview: {item['content_preview']}\n\n"
         

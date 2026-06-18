@@ -374,25 +374,34 @@ def send_to_telegram(summaries: List[Dict[str, Any]], dry_run: bool, sub_data: D
     if not chat_ids:
         logger.info("No subscribers to send to.")
         return True
-            
-    date_str = datetime.now().strftime("%Y-%m-%d")
-    message = f"🔒 <b>Bug Bounty & InfoSec Digest</b> - {date_str}\n\n"
     
-    for item in summaries:
+    # Build individual messages: 1 header + 1 per article
+    date_str = datetime.now().strftime("%Y-%m-%d")
+    header = f"🔒 <b>Bug Bounty & InfoSec Digest</b> — {date_str}\n\n📡 {len(summaries)} items today:"
+    
+    article_messages = []
+    for idx, item in enumerate(summaries):
         tag = item.get("tag", "News")
         title = item.get("title", "No Title")
         source = item.get("source", "Unknown")
         summary = item.get("summary", "")
         url = item.get("url", "#")
         
-        message += f"▪️ <b>[{tag}]</b> <a href='{url}'>{title}</a>\n"
-        message += f"<i>via {source}</i>\n"
-        message += f"{summary}\n\n"
+        msg = (
+            f"<b>{idx + 1}/{len(summaries)}</b> — <b>[{tag}]</b>\n\n"
+            f"<a href='{url}'>{title}</a>\n"
+            f"<i>via {source}</i>\n\n"
+            f"{summary}"
+        )
+        article_messages.append(msg)
+        
+    all_messages = [header] + article_messages
         
     if dry_run:
-        logger.info(f"DRY RUN: Telegram Message Payload to {len(chat_ids)} users:")
-        print("-" * 40)
-        print(message)
+        logger.info(f"DRY RUN: Sending {len(all_messages)} messages to {len(chat_ids)} users:")
+        for m in all_messages:
+            print("-" * 40)
+            print(m)
         print("-" * 40)
         return True
         
@@ -400,26 +409,30 @@ def send_to_telegram(summaries: List[Dict[str, Any]], dry_run: bool, sub_data: D
     active_chat_ids = []
     
     for chat_id in chat_ids:
-        url = f"https://api.telegram.org/bot{bot_token}/sendMessage"
-        payload = {
-            "chat_id": chat_id,
-            "text": message,
-            "parse_mode": "HTML",
-            "disable_web_page_preview": True
-        }
-        
-        try:
-            resp = requests.post(url, json=payload)
-            if resp.status_code == 403:
-                logger.info(f"User {chat_id} blocked the bot. Removing from subscribers.")
-                continue
-            resp.raise_for_status()
-            logger.info(f"Message sent to {chat_id} successfully.")
+        send_ok = True
+        for msg in all_messages:
+            api_url = f"https://api.telegram.org/bot{bot_token}/sendMessage"
+            payload = {
+                "chat_id": chat_id,
+                "text": msg,
+                "parse_mode": "HTML",
+                "disable_web_page_preview": True
+            }
+            
+            try:
+                resp = requests.post(api_url, json=payload)
+                if resp.status_code == 403:
+                    logger.info(f"User {chat_id} blocked the bot. Removing from subscribers.")
+                    send_ok = False
+                    break
+                resp.raise_for_status()
+            except Exception as e:
+                logger.error(f"Failed to send to {chat_id}: {e}")
+                
+        if send_ok:
             active_chat_ids.append(chat_id)
             success_count += 1
-        except Exception as e:
-            logger.error(f"Failed to send to {chat_id}: {e}")
-            active_chat_ids.append(chat_id) # keep them if it's a temp error
+            logger.info(f"All {len(all_messages)} messages sent to {chat_id} successfully.")
             
     # Update subscribers if anyone was removed
     if len(active_chat_ids) != len(chat_ids) and not dry_run:

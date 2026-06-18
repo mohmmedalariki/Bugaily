@@ -23,5 +23,10 @@
     "https://www.bleepingcomputer.com/news/security/cisa-orders-feds-to-patch-max-severity-joomla-plugin-flaw-by-friday/",
     "https://www.reddit.com/r/bugbounty/comments/1u8qzrj/where_would_a_good_place_to_post_disclosure_be/",
     "https://thehackernews.com/2026/06/cisa-warns-of-actively-exploited-joomla.html",
-    "https://thehackernews.com/2026/06/144-mastra-npm-packages-compromised-via.html"
+    "https://thehackernews.com/2026/06/144-mastra-npm-packages-compromised-via.html",
+    "https://www.reddit.com/r/bugbounty/comments/1u8e835/dyson_program_sla_dropped_from_2_weeks_to_1_week/",
+    "https://osintteam.blog/2fa-bypass-the-complete-guide-to-breaking-two-factor-authentication-and-how-to-fix-it-db1947865fe9?source=rss------bug_bounty-5",
+    "https://nitishyaddala.medium.com/authenticating-a-paypal-notification-is-not-the-same-as-trusting-what-it-says-cve-2026-9189-9a130bcaa8ac?source=rss------bug_bounty-5",
+    "https://www.bleepingcomputer.com/news/microsoft/microsoft-working-on-defender-patch-for-rogueplanet-zero-day/",
+    "https://www.reddit.com/r/bugbounty/comments/1u7pxbz/bugcrowd_suspended_my_account_while_a_valid_1/"
 ]

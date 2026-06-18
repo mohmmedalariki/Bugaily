@@ -43,6 +43,56 @@ HOURS_LOOKBACK = 36
 HISTORY_FILE = "history.json"
 SUBSCRIBERS_FILE = "subscribers.json"
 
+# AI System Prompt — instructs the model to think like a hunter, not a journalist
+SYSTEM_PROMPT = (
+    "You are an elite bug bounty hunter and penetration tester with 10+ years of experience. "
+    "Your audience is other professional bug bounty hunters who need actionable technical intelligence, "
+    "NOT generic news summaries. You must respond with valid JSON ONLY. No markdown, no wrapping.\n\n"
+    "Rules for writing the 'summary' field:\n"
+    "- Write 4-6 detailed sentences.\n"
+    "- Extract and mention specific technical details: CVE IDs, affected software versions, "
+    "vulnerability classes (SSRF, IDOR, RCE, XSS, race condition, etc.), root causes, "
+    "exploit chains, bypass techniques, and payload examples when available.\n"
+    "- For writeups: describe the methodology step-by-step — what recon was done, what was found, "
+    "how it was exploited, what the bypass or trick was, and the final impact.\n"
+    "- For vulnerabilities/CVEs: state the affected product and version, the attack vector, "
+    "whether auth is required, the CVSS score if available, and whether a PoC or patch exists.\n"
+    "- For tools/methodology: explain what the tool does, how to use it in a hunt, "
+    "and what it replaces or improves upon.\n"
+    "- End each summary with a practical takeaway: what should a hunter DO with this information? "
+    "e.g. 'Check your targets for X', 'Add Y to your wordlist', 'Test Z on endpoints that accept XML'.\n"
+    "- NEVER write vague summaries like 'a vulnerability was found' or 'researchers discovered an issue'. "
+    "Always be specific about WHAT, HOW, and WHY it matters to a hunter."
+)
+
+
+def build_summary_prompt(items, language):
+    """Build the user-facing prompt with all article data."""
+    prompt = (
+        f"Analyze the following {len(items)} bug bounty / infosec items and produce actionable intelligence "
+        f"in {language}.\n\n"
+        f"Output MUST be valid JSON: a list of objects with these keys:\n"
+        f"  - title: the article title\n"
+        f"  - source: the feed source name\n"
+        f"  - url: the article URL\n"
+        f"  - summary: a detailed, technical, hunter-focused summary (4-6 sentences in {language}). "
+        f"Include specific techniques, payloads, CVEs, tools, bypass methods, and a practical takeaway.\n"
+        f"  - tag: one category from: Vulnerability, Writeup, Methodology, Tooling, Recon, "
+        f"Exploit, Misconfiguration, News (translated to {language})\n\n"
+        f"Here are the items:\n\n"
+    )
+    
+    for i, item in enumerate(items):
+        prompt += (
+            f"--- Item {i+1} ---\n"
+            f"Title: {item['title']}\n"
+            f"Source: {item['source']}\n"
+            f"URL: {item['url']}\n"
+            f"Content:\n{item['content_preview']}\n\n"
+        )
+    
+    return prompt
+
 
 def load_history() -> List[str]:
     if os.path.exists(HISTORY_FILE):
@@ -163,7 +213,7 @@ def fetch_feeds(history: List[str]) -> List[Dict[str, Any]]:
                     "title": title,
                     "url": link,
                     "source": source_name,
-                    "content_preview": content[:1500], # Keep a reasonable chunk for the AI to summarize
+                    "content_preview": content[:3000], # Keep a large chunk for the AI to extract technical details
                     "published": entry.get("published", "")
                 })
 
@@ -203,16 +253,13 @@ def summarize_with_groq(items: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
     client = Groq(api_key=api_key)
     
     language = os.getenv("SUMMARY_LANGUAGE", "English")
-    prompt = f"You are an elite bug bounty hunter. Summarize the following news items in {language}. Output MUST be valid JSON containing a list of objects with keys: title, source, url, summary, tag. For the 'summary' field, provide a highly technical, detailed summary (3-5 sentences in {language}) tailored specifically for bug bounty hunters. Focus strictly on actionable intelligence: specific vulnerabilities, payloads, bypass techniques, root causes, and practical takeaways they can use in their own hunts. Skip generic fluff. For the 'tag' field, use a relevant category like 'Vulnerability', 'Writeup', 'Tooling', 'Methodology' (translated to {language}). Here are the items:\n\n"
-    
-    for i, item in enumerate(items):
-        prompt += f"Item {i+1}:\nTitle: {item['title']}\nSource: {item['source']}\nURL: {item['url']}\nContent Preview: {item['content_preview']}\n\n"
+    prompt = build_summary_prompt(items, language)
     
     response = client.chat.completions.create(
         messages=[
             {
                 "role": "system",
-                "content": "You are a cybersecurity expert that summarizes bug bounty news. You must respond with valid JSON ONLY. No markdown wrapping. Just the raw JSON array."
+                "content": SYSTEM_PROMPT
             },
             {
                 "role": "user",
@@ -250,9 +297,7 @@ def summarize_with_gemini(items: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
     client = genai.Client(api_key=api_key)
     
     language = os.getenv("SUMMARY_LANGUAGE", "English")
-    prompt = f"You are an elite bug bounty hunter. Summarize the following news items in {language}. Output MUST be valid JSON containing a list of objects with keys: title, source, url, summary, tag. For the 'summary' field, provide a highly technical, detailed summary (3-5 sentences in {language}) tailored specifically for bug bounty hunters. Focus strictly on actionable intelligence: specific vulnerabilities, payloads, bypass techniques, root causes, and practical takeaways they can use in their own hunts. Skip generic fluff. For the 'tag' field, use a relevant category like 'Vulnerability', 'Writeup', 'Tooling', 'Methodology' (translated to {language}). Here are the items:\n\n"
-    for i, item in enumerate(items):
-        prompt += f"Item {i+1}:\nTitle: {item['title']}\nSource: {item['source']}\nURL: {item['url']}\nContent Preview: {item['content_preview']}\n\n"
+    prompt = SYSTEM_PROMPT + "\n\n" + build_summary_prompt(items, language)
         
     try:
         response = client.models.generate_content(

@@ -40,4 +40,4 @@ jobs:
           git config --global user.email "actions@github.com"
           git add history.json subscribers.json
           # Only commit if there are changes
-          git diff --quiet && git diff --staged --quiet || (git commit -m "chore: update history.json and subscribers.json" && git push)
+          git diff --quiet && git diff --staged --quiet || (git commit -m "chore: update history.json and subscribers.json" && git pull --rebase origin main && git push)

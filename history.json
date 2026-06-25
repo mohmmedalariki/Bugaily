@@ -63,5 +63,10 @@
     "https://thehackernews.com/2026/06/malicious-npm-packages-pose-as-postcss.html",
     "https://medium.com/@guyani/the-database-that-couldnt-keep-a-secret-0e99202ab81b?source=rss------bug_bounty-5",
     "https://www.bleepingcomputer.com/news/security/cisco-unified-cm-sme-flaw-cve-2026-20230-now-exploited-in-attacks/",
-    "https://krebsonsecurity.com/2026/06/scattered-spider-hackers-plead-guilty-on-day-1-of-trial/"
+    "https://krebsonsecurity.com/2026/06/scattered-spider-hackers-plead-guilty-on-day-1-of-trial/",
+    "https://www.reddit.com/r/bugbounty/comments/1uf0aap/bac_logic_flow_program_selection/",
+    "https://www.reddit.com/r/bugbounty/comments/1udov0y/stored_xss_only_exploitable_in_edit_mode_will_it/",
+    "https://www.bleepingcomputer.com/news/security/draftkings-hacker-snoopy-sentenced-to-18-months-in-prison/",
+    "https://www.bleepingcomputer.com/news/security/amadey-stealc-malware-operations-disrupted-in-operation-endgame-action/",
+    "https://medium.com/@HackerMD/classic-vulnerabilities-part-2-oracle-manipulation-flash-loans-price-attacks-167d605fbe78?source=rss------bug_bounty-5"
 ]

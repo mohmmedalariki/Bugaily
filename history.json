@@ -68,5 +68,10 @@
     "https://www.reddit.com/r/bugbounty/comments/1udov0y/stored_xss_only_exploitable_in_edit_mode_will_it/",
     "https://www.bleepingcomputer.com/news/security/draftkings-hacker-snoopy-sentenced-to-18-months-in-prison/",
     "https://www.bleepingcomputer.com/news/security/amadey-stealc-malware-operations-disrupted-in-operation-endgame-action/",
-    "https://medium.com/@HackerMD/classic-vulnerabilities-part-2-oracle-manipulation-flash-loans-price-attacks-167d605fbe78?source=rss------bug_bounty-5"
+    "https://medium.com/@HackerMD/classic-vulnerabilities-part-2-oracle-manipulation-flash-loans-price-attacks-167d605fbe78?source=rss------bug_bounty-5",
+    "https://thehackernews.com/2026/06/new-gaslight-macos-malware-uses-prompt.html",
+    "https://www.reddit.com/r/bugbounty/comments/1uflhz7/api_rest_no_rate_limit_otp_expired/",
+    "https://www.reddit.com/r/bugbounty/comments/1ufb1r4/bypassed_upload_validation_via_pdfsvg_polyglot/",
+    "https://www.bleepingcomputer.com/news/security/mandiant-reveals-how-cisco-sd-wan-zero-day-attacks-gained-root-access/",
+    "https://osintteam.blog/sqlmap-explained-how-it-works-get-and-post-testing-waf-bypass-d69f08e6c49e?source=rss------bug_bounty-5"
 ]

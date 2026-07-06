@@ -118,5 +118,10 @@
     "https://www.bleepingcomputer.com/news/security/jadepuffer-ransomware-used-ai-agent-to-automate-entire-attack/",
     "https://thehackernews.com/2026/07/new-avalon-malware-framework-packs.html",
     "https://medium.com/@achariharan07/reconx-a-lightweight-bash-based-reconnaissance-framework-for-ethical-hackers-52610d64e574?source=rss------bug_bounty-5",
-    "https://thehackernews.com/2026/07/unpatched-flaws-disclosed-in-filesystem.html"
+    "https://thehackernews.com/2026/07/unpatched-flaws-disclosed-in-filesystem.html",
+    "https://www.reddit.com/r/bugbounty/comments/1uoam6o/is_bra_size_a_p4_bug/",
+    "https://www.reddit.com/r/bugbounty/comments/1unynov/got_an_ai_agent_past_a_cloudflare_waf_by_giving/",
+    "https://medium.com/@S3THU/from-application-rce-to-full-host-takeover-via-docker-socket-misconfiguration-7f8db4865c2a?source=rss------bug_bounty-5",
+    "https://orion7715.medium.com/from-file-upload-to-admin-account-takeover-exploring-blind-xss-via-malicious-file-content-cba1ac63ab11?source=rss------bug_bounty-5",
+    "https://www.bleepingcomputer.com/news/security/flipper-zero-firmware-development-continues-with-community-help/"
 ]

@@ -123,5 +123,10 @@
     "https://www.reddit.com/r/bugbounty/comments/1unynov/got_an_ai_agent_past_a_cloudflare_waf_by_giving/",
     "https://medium.com/@S3THU/from-application-rce-to-full-host-takeover-via-docker-socket-misconfiguration-7f8db4865c2a?source=rss------bug_bounty-5",
     "https://orion7715.medium.com/from-file-upload-to-admin-account-takeover-exploring-blind-xss-via-malicious-file-content-cba1ac63ab11?source=rss------bug_bounty-5",
-    "https://www.bleepingcomputer.com/news/security/flipper-zero-firmware-development-continues-with-community-help/"
+    "https://www.bleepingcomputer.com/news/security/flipper-zero-firmware-development-continues-with-community-help/",
+    "https://thehackernews.com/2026/07/new-trojpix-attack-leaks-data-from-air.html",
+    "https://thehackernews.com/2026/07/opera-gx-flaw-let-malicious-sites-auto.html",
+    "https://www.reddit.com/r/bugbounty/comments/1uoxj70/is_that_a_good_idea_to_hunt_on_a_program_luanched/",
+    "https://medium.com/@Aacle/your-subdomain-enum-is-only-finding-half-the-attack-surface-bea3f9ea661e?source=rss------bug_bounty-5",
+    "https://medium.com/@HackerSavanna/writing-effective-bug-bounty-reports-a-practical-guide-for-security-researchers-141e3fbfc36b?source=rss------bug_bounty-5"
 ]

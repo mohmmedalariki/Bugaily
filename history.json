@@ -128,5 +128,10 @@
     "https://thehackernews.com/2026/07/opera-gx-flaw-let-malicious-sites-auto.html",
     "https://www.reddit.com/r/bugbounty/comments/1uoxj70/is_that_a_good_idea_to_hunt_on_a_program_luanched/",
     "https://medium.com/@Aacle/your-subdomain-enum-is-only-finding-half-the-attack-surface-bea3f9ea661e?source=rss------bug_bounty-5",
-    "https://medium.com/@HackerSavanna/writing-effective-bug-bounty-reports-a-practical-guide-for-security-researchers-141e3fbfc36b?source=rss------bug_bounty-5"
+    "https://medium.com/@HackerSavanna/writing-effective-bug-bounty-reports-a-practical-guide-for-security-researchers-141e3fbfc36b?source=rss------bug_bounty-5",
+    "https://medium.com/@kenjisubagja/bug-bounty-the-upload-was-protected-but-the-file-was-public-fc02ed6b292a?source=rss------bug_bounty-5",
+    "https://bharath.medium.com/master-node-js-npm-a-python-developers-security-guide-6c686accfe7e?source=rss------bug_bounty-5",
+    "https://www.reddit.com/r/bugbounty/comments/1uq67be/i_turned_all_my_bug_bounty_writeups_into_short/",
+    "https://www.bleepingcomputer.com/news/security/the-github-actions-attack-pattern-your-ci-security-scanners-miss/",
+    "https://www.reddit.com/r/bugbounty/comments/1upwtw6/is_csrf_leading_to_unauthorized_recently_viewed/"
 ]

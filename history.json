@@ -163,5 +163,10 @@
     "https://medium.com/@RootXSec/race-condition-on-login-endpoint-allows-complete-brute-force-rate-limit-bypass-and-block-bypass-bb4f7f30e4ab?source=rss------bug_bounty-5",
     "https://medium.com/@psaibtech/i-replaced-myself-with-an-ai-hacker-for-24-hours-heres-how-much-bounty-it-found-9b72586e6aae?source=rss------bug_bounty-5",
     "https://www.bleepingcomputer.com/news/artificial-intelligence/claude-fable-5-stays-free-for-paid-users-until-july-19-as-anthropic-buys-more-time/",
-    "https://thehackernews.com/2026/07/forg365-phaas-targets-microsoft-365.html"
+    "https://thehackernews.com/2026/07/forg365-phaas-targets-microsoft-365.html",
+    "https://thehackernews.com/2026/07/microsoft-maps-year-long-shinyhunters.html",
+    "https://osintteam.blog/breaking-cors-hunting-cors-misconfigurations-for-bug-bounty-1f2c36f0e408?source=rss------bug_bounty-5",
+    "https://thehackernews.com/2026/07/claude-for-chrome-flaw-lets-other.html",
+    "https://medium.com/@masood.nfc77/the-mindset-shift-that-changed-my-bug-bounty-results-78c055e58010?source=rss------bug_bounty-5",
+    "https://www.reddit.com/r/bugbounty/comments/1uwasdv/new_to_bug_bounty_found_unauthenticated_nexus/"
 ]

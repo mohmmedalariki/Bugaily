@@ -178,5 +178,10 @@
     "https://thehackernews.com/2026/07/20-hijacked-government-websites.html",
     "https://thehackernews.com/2026/07/zoom-patches-critical-windows-flaw-that.html",
     "https://www.reddit.com/r/bugbounty/comments/1uyh2x1/reported_two_critical_paymentbot_bypass_issues/",
-    "https://www.bleepingcomputer.com/news/security/new-clicklock-macos-malware-traps-users-into-revealing-login-password/"
+    "https://www.bleepingcomputer.com/news/security/new-clicklock-macos-malware-traps-users-into-revealing-login-password/",
+    "https://www.reddit.com/r/bugbounty/comments/1uzf56r/reported_a_potential_subscription_bypass_to/",
+    "https://thehackernews.com/2026/07/openssl-hollowbyte-flaw-could-freeze.html",
+    "https://thehackernews.com/2026/07/goldeneyedog-subgroup-linked-to.html",
+    "https://medium.com/@pritamtare029/from-user-to-admin-the-story-of-privilege-escalation-f4d70df7de4c?source=rss------bug_bounty-5",
+    "https://osintteam.blog/breaking-directories-a-bug-hunters-guide-to-directory-traversal-112b98b515e7?source=rss------bug_bounty-5"
 ]

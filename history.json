@@ -193,5 +193,10 @@
     "https://thehackernews.com/2026/07/uac-0145-uses-clickfix-captchas-to.html",
     "https://mazenrady.medium.com/how-i-found-a-race-condition-in-an-email-verification-feature-57f3637e9ca9?source=rss------bug_bounty-5",
     "https://www.bleepingcomputer.com/news/security/update-now-7-zip-fixes-rce-flaw-exploitable-with-malicious-archives/",
-    "https://mazenrady.medium.com/how-a-simple-profile-setting-revealed-sensitive-credentials-in-a-bug-bounty-program-7809a8bdd827?source=rss------bug_bounty-5"
+    "https://mazenrady.medium.com/how-a-simple-profile-setting-revealed-sensitive-credentials-in-a-bug-bounty-program-7809a8bdd827?source=rss------bug_bounty-5",
+    "https://www.bleepingcomputer.com/news/security/hugging-face-breach-autonomous-ai-agent-system-internal-datasets-credentials/",
+    "https://www.bleepingcomputer.com/news/security/hackers-steal-237-million-in-crypto-from-ostium-in-off-chain-attack/",
+    "https://medium.com/@RootXSec/how-a-failed-csrf-escalated-to-an-unauthenticated-mass-assignment-7-3-severity-aa0ba70a3162?source=rss------bug_bounty-5",
+    "https://thehackernews.com/2026/07/weekly-recap-wordpress-rce-sonicwall-0.html",
+    "https://thehackernews.com/2026/07/hollowgraph-malware-hides-c2-and-stolen.html"
 ]

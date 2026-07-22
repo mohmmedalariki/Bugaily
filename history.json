@@ -198,5 +198,10 @@
     "https://www.bleepingcomputer.com/news/security/hackers-steal-237-million-in-crypto-from-ostium-in-off-chain-attack/",
     "https://medium.com/@RootXSec/how-a-failed-csrf-escalated-to-an-unauthenticated-mass-assignment-7-3-severity-aa0ba70a3162?source=rss------bug_bounty-5",
     "https://thehackernews.com/2026/07/weekly-recap-wordpress-rce-sonicwall-0.html",
-    "https://thehackernews.com/2026/07/hollowgraph-malware-hides-c2-and-stolen.html"
+    "https://thehackernews.com/2026/07/hollowgraph-malware-hides-c2-and-stolen.html",
+    "https://www.bleepingcomputer.com/news/security/us-seizes-over-1-000-fifa-world-cup-illegal-streaming-domains/",
+    "https://thehackernews.com/2026/07/fakegit-campaign-uses-7600-github.html",
+    "https://www.bleepingcomputer.com/news/security/closing-the-identity-gaps-in-critical-infrastructure-security/",
+    "https://medium.com/@chauhansarthak3212/unauthenticated-upload-unauthenticated-read-how-i-wrote-prescriptions-into-any-patients-account-385d3564560b?source=rss------bug_bounty-5",
+    "https://www.reddit.com/r/bugbounty/comments/1v2g5rm/leaking_internal_headers_in_flask_ninja_with/"
 ]

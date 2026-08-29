@@ -387,5 +387,10 @@
     "https://www.bleepingcomputer.com/news/security/papercut-warns-of-ng-mf-flaw-exploited-in-zero-day-attacks/",
     "https://elusive1973.medium.com/csrf-how-to-test-part-1-7aec79191a5c?source=rss------bug_bounty-5",
     "https://krebsonsecurity.com/2026/08/two-alleged-teampcp-hackers-arrested-in-australia/",
-    "https://medium.com/@sufyan0x01/how-i-found-my-first-critical-vulnerability-which-came-from-forgetting-my-own-password-on-the-a062bd448868?source=rss------bug_bounty-5"
+    "https://medium.com/@sufyan0x01/how-i-found-my-first-critical-vulnerability-which-came-from-forgetting-my-own-password-on-the-a062bd448868?source=rss------bug_bounty-5",
+    "https://www.bleepingcomputer.com/news/security/mckesson-discloses-breach-after-shinyhunters-claims-patient-data-theft/",
+    "https://thehackernews.com/2026/08/attackers-chain-two-papercut-flaws-to.html",
+    "https://www.reddit.com/r/bugbounty/comments/1w0pvzu/wrote_my_first_bug_bounty_post_for_an/",
+    "https://www.reddit.com/r/bugbounty/comments/1w0bv6d/duplicate_status_on_different_impact_submission/",
+    "https://www.bleepingcomputer.com/news/security/givewp-wordpress-donation-plugin-flaw-lets-hackers-execute-server-commands/"
 ]

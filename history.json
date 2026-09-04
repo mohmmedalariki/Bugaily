@@ -417,5 +417,10 @@
     "https://www.bleepingcomputer.com/news/security/critical-langflow-flaw-exploited-to-steal-openai-and-aws-keys/",
     "https://www.bleepingcomputer.com/news/security/hackers-exploit-critical-jfrog-artifactory-flaw-to-forge-admin-tokens/",
     "https://thehackernews.com/2026/09/google-anthropic-and-openai-unveil.html",
-    "https://infosecwriteups.com/why-most-people-lack-knowledge-in-osint-bd6f8bbf4add?source=rss------bug_bounty-5"
+    "https://infosecwriteups.com/why-most-people-lack-knowledge-in-osint-bd6f8bbf4add?source=rss------bug_bounty-5",
+    "https://www.bleepingcomputer.com/news/microsoft/microsoft-kb5120998-mouse-reset-bug-affects-only-non-english-pcs/",
+    "https://thehackernews.com/2026/09/attackers-turn-trusted-nodejs-runtime.html",
+    "https://mahfujwhh.medium.com/idor-to-bola-mastering-authorization-bugs-in-bug-bounty-d04cbddf8cf8?source=rss------bug_bounty-5",
+    "https://www.bleepingcomputer.com/news/microsoft/microsoft-says-kb5120998-windows-update-resets-desktop-settings/",
+    "https://cybersecuritywriteups.com/how-a-simple-dork-led-to-a-critical-10-0-cvss-06f17c86c5c6?source=rss------bug_bounty-5"
 ]

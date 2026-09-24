@@ -517,5 +517,10 @@
     "https://www.bleepingcomputer.com/news/security/webinar-tomorrow-inside-real-world-google-workspace-breaches/",
     "https://medium.com/@tomsayers88/how-i-went-from-zero-experience-to-finding-valid-bugs-on-hackerone-5c4edc9b8bc0?source=rss------bug_bounty-5",
     "https://www.bleepingcomputer.com/news/security/rogue-external-mfa-providers-can-steal-passwords-during-logins/",
-    "https://thehackernews.com/2026/09/wordpress-issues-patch-for-critical.html"
+    "https://thehackernews.com/2026/09/wordpress-issues-patch-for-critical.html",
+    "https://thehackernews.com/2026/09/anthropic-and-openai-models-still.html",
+    "https://www.reddit.com/r/bugbounty/comments/1wnzolf/bugcrowd_is_currently_fundamentally_broken/",
+    "https://www.bleepingcomputer.com/news/security/how-one-kubernetes-yaml-can-hand-over-a-gcp-organization/",
+    "https://medium.com/@affanhaxor/power-cookie-picoctf-write-up-privilege-escalation-through-cookie-manipulation-5124ae513fdf?source=rss------bug_bounty-5",
+    "https://thehackernews.com/2026/09/malicious-npm-package-poses-as-twilio.html"
 ]

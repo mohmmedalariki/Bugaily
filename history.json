@@ -617,5 +617,10 @@
     "https://thehackernews.com/2026/10/critical-sonicwall-sma-1000-flaw.html",
     "https://www.reddit.com/r/bugbounty/comments/1x42soj/intigriti_program_keeps_getting_suspended_and/",
     "https://www.reddit.com/r/bugbounty/comments/1x445mi/weekly_collaboration_mentorship_post/",
-    "https://meetcyber.net/the-one-part-of-bug-bounty-ai-can-automate-today-is-the-part-you-hate-940afb93b4f0?source=rss------bug_bounty-5"
+    "https://meetcyber.net/the-one-part-of-bug-bounty-ai-can-automate-today-is-the-part-you-hate-940afb93b4f0?source=rss------bug_bounty-5",
+    "https://mohamedalgabry.medium.com/owasp-top-10-for-llm-applications-revised-write-up-dd0d53a88354?source=rss------bug_bounty-5",
+    "https://thehackernews.com/2026/10/anthropic-warns-small-ai-models-could.html",
+    "https://thehackernews.com/2026/10/sap-discloses-critical-cvss-10-flaw-in.html",
+    "https://medium.com/@paraskhorwal9/aws-iam-roles-and-trust-policies-who-can-assume-a-role-and-what-can-they-do-25d0d90e275d?source=rss------bug_bounty-5",
+    "https://www.reddit.com/r/bugbounty/comments/1x5bszw/vulnerability_fixed_by_company_asks_for_retest/"
 ]

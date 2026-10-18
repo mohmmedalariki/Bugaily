@@ -637,5 +637,10 @@
     "https://thehackernews.com/2026/10/threatsday-adobe-rce-dns-wallet-theft.html",
     "https://medium.com/@riyalimba/i-just-learned-a-term-that-changed-how-i-think-about-every-report-i-submit-f465971c6400?source=rss------bug_bounty-5",
     "https://www.reddit.com/r/bugbounty/comments/1x7bxw4/intigriti_submission_limit_reached/",
-    "https://medium.com/@shaikikram2005/how-a-56kb-png-brought-down-a-library-with-millions-of-downloads-cve-2026-109398-b7826d4f38a0?source=rss------bug_bounty-5"
+    "https://medium.com/@shaikikram2005/how-a-56kb-png-brought-down-a-library-with-millions-of-downloads-cve-2026-109398-b7826d4f38a0?source=rss------bug_bounty-5",
+    "https://medium.com/@redhunter01/bypassing-an-aws-waf-challenge-through-url-encoding-an-edge-versus-origin-normalization-mismatch-626d2430f45d?source=rss------bug_bounty-5",
+    "https://www.bleepingcomputer.com/news/security/critical-blockstrap-flaw-lets-hackers-run-code-on-magento-servers/",
+    "https://medium.com/@Akarsh_Chaturvedi/inside-a-bug-bounty-investigation-from-reconnaissance-to-a-reproducible-security-finding-1b7c3cce9165?source=rss------bug_bounty-5",
+    "https://thehackernews.com/2026/10/malfex-npm-package-imgdecode-hides.html",
+    "https://www.reddit.com/r/bugbounty/comments/1x7z3tl/reported_the_same_bug_twice_got_marked_as/"
 ]

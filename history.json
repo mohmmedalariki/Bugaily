@@ -642,5 +642,10 @@
     "https://www.bleepingcomputer.com/news/security/critical-blockstrap-flaw-lets-hackers-run-code-on-magento-servers/",
     "https://medium.com/@Akarsh_Chaturvedi/inside-a-bug-bounty-investigation-from-reconnaissance-to-a-reproducible-security-finding-1b7c3cce9165?source=rss------bug_bounty-5",
     "https://thehackernews.com/2026/10/malfex-npm-package-imgdecode-hides.html",
-    "https://www.reddit.com/r/bugbounty/comments/1x7z3tl/reported_the_same_bug_twice_got_marked_as/"
+    "https://www.reddit.com/r/bugbounty/comments/1x7z3tl/reported_the_same_bug_twice_got_marked_as/",
+    "https://medium.com/@raksharoot/cors-misconfigurations-when-the-browser-hands-over-the-keys-1539c4f6e8f9?source=rss------bug_bounty-5",
+    "https://medium.com/@affanhaxor/irish-name-repo-2-picoctf-write-up-sql-injection-authentication-bypass-c717575e9154?source=rss------bug_bounty-5",
+    "https://www.reddit.com/r/bugbounty/comments/1x9kvpm/intel_suspended_its_paid_bug_bounty_program_is_ai/",
+    "https://www.bleepingcomputer.com/news/security/hackers-exploit-siteguard-waf-flaw-to-run-commands-as-system-root/",
+    "https://thehackernews.com/2026/10/connectwise-suspends-cloud-backup-after.html"
 ]

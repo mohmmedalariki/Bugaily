@@ -672,5 +672,10 @@
     "https://thehackernews.com/2026/10/threatsday-ai-secrets-leak-pingcap.html",
     "https://www.bleepingcomputer.com/news/security/hpe-patches-eight-max-severity-rce-and-auth-bypass-aos-flaws/",
     "https://www.bleepingcomputer.com/news/security/railway-warns-devs-to-rotate-secrets-after-potential-breach/",
-    "https://thehackernews.com/2026/10/the-ai-agent-nobody-owns-watch-expert.html"
+    "https://thehackernews.com/2026/10/the-ai-agent-nobody-owns-watch-expert.html",
+    "https://medium.com/@riyalimba/i-tracked-down-what-happened-to-the-bug-i-reported-it-wasnt-fixed-c20b95066af9?source=rss------bug_bounty-5",
+    "https://hackliva.medium.com/php2shell-when-a-memory-bug-turns-into-remote-code-execution-563dda8a9af9?source=rss------bug_bounty-5",
+    "https://www.reddit.com/r/bugbounty/comments/1xe19tc/php2shell_exploit_analysis_cve2026109618/",
+    "https://www.reddit.com/r/bugbounty/comments/1xe329d/bugcrowd_triage_system_part_2/",
+    "https://www.bleepingcomputer.com/news/security/abandoned-popcorn-time-app-exposed-millions-of-device-to-rce-attacks/"
 ]

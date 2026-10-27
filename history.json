@@ -682,5 +682,10 @@
     "https://medium.com/@shadow_28/ssrf-a-sneaky-way-to-bypass-url-filters-using-http-redirects-046ff54ce667?source=rss------bug_bounty-5",
     "https://thehackernews.com/2026/10/php2shell-exploitation-hits-government.html",
     "https://www.reddit.com/r/bugbounty/comments/1xf1vn0/any_triager_from_intigriti_here_need_help/",
-    "https://www.reddit.com/r/bugbounty/comments/1xeudo8/a_lot_of_researchers_are_getting_banned_from/"
+    "https://www.reddit.com/r/bugbounty/comments/1xeudo8/a_lot_of_researchers_are_getting_banned_from/",
+    "https://medium.com/@bhautikXploit/intigriti-october-2026-challenge-write-up-exploiting-coupon-stacking-4b771b12ef5a?source=rss------bug_bounty-5",
+    "https://www.bleepingcomputer.com/news/security/critical-http2shell-brotli-vulnerability-triggers-emergency-patches/",
+    "https://www.bleepingcomputer.com/news/security/former-pentester-used-artex-ai-to-steal-82-million-data-records/",
+    "https://obaskly.medium.com/i-wrote-a-file-on-a-nasa-server-with-a-132-byte-zip-41615320b5a5?source=rss------bug_bounty-5",
+    "https://www.reddit.com/r/bugbounty/comments/1xgdnf5/would_this_be_valid_in_a_bug_bounty_program_or/"
 ]

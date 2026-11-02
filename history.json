@@ -712,5 +712,10 @@
     "https://www.bleepingcomputer.com/news/security/reddit-to-lock-content-behind-logins-to-fight-scrapers/",
     "https://www.reddit.com/r/bugbounty/comments/1xkejcf/even_with_ai_agents/",
     "https://www.reddit.com/r/bugbounty/comments/1xk7m4j/18yo_7_months_experience/",
-    "https://medium.com/@Dark_Boss/the-hidden-idor-vulnerability-in-me-api-endpoints-5cf126fd29a7?source=rss------bug_bounty-5"
+    "https://medium.com/@Dark_Boss/the-hidden-idor-vulnerability-in-me-api-endpoints-5cf126fd29a7?source=rss------bug_bounty-5",
+    "https://thehackernews.com/2026/11/netamloader-malware-targets-government.html",
+    "https://medium.com/@cyb3rD1vvya/from-p4-to-p1-day-10-server-side-request-forgery-ssrf-finding-and-validating-server-side-c76e4c785bd2?source=rss------bug_bounty-5",
+    "https://www.bleepingcomputer.com/news/security/alpine-linux-rebuilds-gitlab-after-attempted-rce-attack/",
+    "https://thehackernews.com/2026/11/new-volta-infostealer-uses-claude.html",
+    "https://medium.com/@verylazytech/15-ci-cd-security-mistakes-that-can-lead-to-supply-chain-attacks-learn-to-spot-and-fix-them-c2196c5354a3?source=rss------bug_bounty-5"
 ]

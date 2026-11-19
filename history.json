@@ -797,5 +797,10 @@
     "https://masimshahzad.medium.com/starbucks-path-traversal-nearly-100m-customer-records-d64e803acab8?source=rss------bug_bounty-5",
     "https://medium.com/@impyhacker/from-just-a-user-to-admin-exploiting-a-mass-assignment-flaw-to-take-over-a-production-ai-df18653ddabd?source=rss------bug_bounty-5",
     "https://thehackernews.com/2026/11/trigram-campaign-impersonates-about-50.html",
-    "https://www.bleepingcomputer.com/news/security/uber-notifies-drivers-of-data-breach-affecting-nearly-150-000-people/"
+    "https://www.bleepingcomputer.com/news/security/uber-notifies-drivers-of-data-breach-affecting-nearly-150-000-people/",
+    "https://thehackernews.com/2026/11/10-year-old-nginx-http2-flaw-lets.html",
+    "https://osintteam.blog/time-based-blind-sql-injection-when-the-database-talks-in-seconds-1fa3c19c899f?source=rss------bug_bounty-5",
+    "https://osintteam.blog/ssrf-filters-bypass-using-redirects-007fe0151bac?source=rss------bug_bounty-5",
+    "https://www.bleepingcomputer.com/news/security/microsofts-agent-framework-pypi-package-compromised-to-steal-credentials/",
+    "https://www.bleepingcomputer.com/news/security/critical-java4shell-flaw-allows-rce-attacks-on-major-java-applications/"
 ]

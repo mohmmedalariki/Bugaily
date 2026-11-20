@@ -802,5 +802,10 @@
     "https://osintteam.blog/time-based-blind-sql-injection-when-the-database-talks-in-seconds-1fa3c19c899f?source=rss------bug_bounty-5",
     "https://osintteam.blog/ssrf-filters-bypass-using-redirects-007fe0151bac?source=rss------bug_bounty-5",
     "https://www.bleepingcomputer.com/news/security/microsofts-agent-framework-pypi-package-compromised-to-steal-credentials/",
-    "https://www.bleepingcomputer.com/news/security/critical-java4shell-flaw-allows-rce-attacks-on-major-java-applications/"
+    "https://www.bleepingcomputer.com/news/security/critical-java4shell-flaw-allows-rce-attacks-on-major-java-applications/",
+    "https://www.bleepingcomputer.com/news/security/vmware-patches-vcenter-zero-day-exploited-in-attacks-since-september/",
+    "https://thehackernews.com/2026/11/critical-vmware-vcenter-flaw-cvss-98.html",
+    "https://masimshahzad.medium.com/google-2fa-bug-the-login-that-outlived-the-password-54b41453325f?source=rss------bug_bounty-5",
+    "https://www.bleepingcomputer.com/news/security/hackers-steal-data-of-16-million-sbc-medical-group-customers/",
+    "https://thehackernews.com/2026/11/phpaftershell-explained-how-hackers.html"
 ]
